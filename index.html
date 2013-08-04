@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Hema Travel Contact</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+</head>
+ 
+<body>
+
+<script>
+function submit1(data)
+{
+  $.ajax({type:'POST', url: 'http://apps.fourcells.com/travel/contacts_count.php', data:$('#search').serialize(), success:function(response){ 	success1(response); } ,dataType: 'html'});
+}
+function success1(response)
+{
+   document.getElementById("resultLog").innerHTML=response;
+}
+</script>
+<formname='form2' id='form2' data-ajax="true">
+<div data-role="page" id="indexPage">
+        <div data-role="header">
+            <h1>ZONE TRAVELS</h1>
+        </div>
+        <div data-role="content" >
+  			 <label for="search">Search Contact:</label>
+  			 <input type="search" name="search" id="search" value="" placeholder="Enter first few charatcters of contact" />
+
+
+        </div>
+
+ 		  	<div data-role="content" >
+ 		  	<label for="search"></label><a href="#" class="ratebutton" onclick="submit1();" data-role="button" data-icon="star" data-inline="true" >Search</a>
+ 		  	<label for="search"></label><span id='resultLog'></span>
+
+
+
+   </div>
+
+        <div data-role="footer">
+            <h1>www.fourcells.com</h1>
+        </div>
+    </div>
+</form> 
+</body>
